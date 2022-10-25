@@ -22,7 +22,11 @@ async function handler(_req: Request): Promise<Response> {
 
     const reponse : PolytechResponse = await res.then((res) => res.json())
 
-    return new Response("Similarité entre " + payload.sim1 + " et " + payload.sim2 + " : " + reponse.simscore);
+    const responsePayload = {
+        "response_type": "in_channel",
+        "text": `La similarité entre "${guess}" et "${WORD_TO_FIND}" est de ${reponse.simscore}`
+    }
+    return new Response(JSON.stringify(responsePayload), {status: 200, headers: {"Content-Type": "application/json"}});
 }
 
 serve(handler);
