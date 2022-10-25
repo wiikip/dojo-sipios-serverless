@@ -10,7 +10,7 @@ type PolytechResponse = {
 async function handler(_req: Request): Promise<Response> {
 
     const guess = _req;
-    const body = await guess.json();
+    const body = await guess.text();
     console.log(body)
 
     const payload = {sim1: "chat", sim2: "chien", lang: "fr", type: "General Word2Vec"}
