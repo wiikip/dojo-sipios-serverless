@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.119.0/http/server.ts";
 
-const WORD_TO_FIND = "bucheron";
+const WORD_TO_FIND = "bûcheron";
 
 type PolytechResponse = {
     result: string;
