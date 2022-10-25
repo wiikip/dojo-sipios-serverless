@@ -24,7 +24,8 @@ async function handler(_req: Request): Promise<Response> {
 
     const responsePayload = {
         "response_type": "in_channel",
-        "text": `La similarité entre "${guess}" et "${WORD_TO_FIND}" est de ${reponse.simscore}`
+        "text": `La similarité entre "${guess}" et "${WORD_TO_FIND}" est de ${reponse.simscore}`,
+        "delete_original": true
     }
     return new Response(JSON.stringify(responsePayload), {status: 200, headers: {"Content-Type": "application/json"}});
 }
